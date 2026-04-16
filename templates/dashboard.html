@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Welcome to Your Dashboard!</h1>
+        <div class="user-info">
+            <p><strong>User:</strong> {{username}}</p>
+            <p><strong>Email:</strong> {{email}}</p>
+        </div>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function logout() {
+            // Implement logout functionality here
+            alert('You have been logged out.');
+        }
+    </script>
+</body>
+</html>
