@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'your-secret-key-change-in-production')
 
-# Données utilisateurs (en production, utiliser une base de données)
+# Fake DB
 users = {
     'admin': generate_password_hash('password123'),
     'user': generate_password_hash('user123')
@@ -23,7 +23,7 @@ def login():
     
     if username in users and check_password_hash(users[username], password):
         session['username'] = username
-        return jsonify({'message': 'Connexion réussie'}), 200
+        return jsonify({'redirect': url_for('dashboard')}), 200
     else:
         return jsonify({'message': 'Identifiants incorrects'}), 401
 
@@ -31,7 +31,7 @@ def login():
 def dashboard():
     if 'username' not in session:
         return redirect(url_for('index'))
-    return f'<h1>Bienvenue {session["username"]}!</h1><a href="/logout">Se déconnecter</a>'
+    return render_template('dashboard.html', username=session['username'])
 
 @app.route('/logout')
 def logout():
