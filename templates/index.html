@@ -135,11 +135,7 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    messageDiv.className = 'message success';
-                    messageDiv.textContent = 'Connexion réussie!';
-                    setTimeout(() => {
-                        window.location.href = '/dashboard';
-                    }, 1500);
+                    window.location.href = data.redirect;
                 } else {
                     messageDiv.className = 'message error';
                     messageDiv.textContent = data.message || 'Erreur de connexion';
