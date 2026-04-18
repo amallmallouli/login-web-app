@@ -3,24 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS styles for modern design */
+        body { font-family: Arial, sans-serif; }
+        .navbar { background-color: #333; color: white; padding: 1rem; }
+        .welcome { padding: 2rem; text-align: center; }
+        .user-info { border: 1px solid #eaeaea; padding: 1rem; border-radius: 5px; }
+        .stats-grid { display: flex; justify-content: space-around; padding: 1rem; }
+        .stat-card { flex: 1; margin: 1rem; padding: 1rem; border-radius: 5px; transition: transform 0.2s; }
+        .stat-card:hover { transform: scale(1.05); }
+        .feature-card { background: linear-gradient(to right, #6a11cb, #2575fc); color: white; padding: 1rem; border-radius: 5px; }
+    </style>
 </head>
 <body>
-    <div class="dashboard">
-        <h1>Welcome to Your Dashboard!</h1>
-        <div class="user-info">
-            <p><strong>User:</strong> {{username}}</p>
-            <p><strong>Email:</strong> {{email}}</p>
-        </div>
-        <button onclick="logout()">Logout</button>
+
+    <div class="navbar">
+        <h1>My Application</h1>
     </div>
 
-    <script>
-        function logout() {
-            // Implement logout functionality here
-            alert('You have been logged out.');
-        }
-    </script>
+    <div class="welcome">
+        <h2>Welcome, [User Name]!</h2>
+    </div>
+
+    <div class="user-info">
+        <h3>Your Profile</h3>
+        <p>Email: user@example.com</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">Stat 1</div>
+        <div class="stat-card">Stat 2</div>
+        <div class="stat-card">Stat 3</div>
+    </div>
+
+    <div class="feature-cards">
+        <div class="feature-card">Feature 1</div>
+        <div class="feature-card">Feature 2</div>
+        <div class="feature-card">Feature 3</div>
+    </div>
+
+</body>
+</html>
 </body>
 </html>
