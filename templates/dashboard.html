@@ -35,16 +35,28 @@ body {
 }
 
 .sidebar ul li {
-    padding: 12px;
     border-radius: 8px;
     margin-bottom: 10px;
-    cursor: pointer;
+}
+
+/* links */
+.sidebar ul li a {
+    display: block;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
     transition: 0.3s;
 }
 
-.sidebar ul li:hover,
-.sidebar ul .active {
+.sidebar ul li a:hover,
+.sidebar ul .active a {
     background: #3b82f6;
+}
+
+/* logout style */
+.logout:hover {
+    background: #ef4444 !important;
 }
 
 /* Main */
@@ -140,10 +152,10 @@ header {
 <div class="sidebar">
     <h2>MyApp</h2>
     <ul>
-        <li class="active">Dashboard</li>
-        <li>Users</li>
-        <li>Settings</li>
-        <li>Logout</li>
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="{{ url_for('logout') }}" class="logout">Logout</a></li>
     </ul>
 </div>
 
@@ -167,7 +179,7 @@ header {
         </div>
         <div class="card">
             <h3>Revenue</h3>
-            <p>$30,200</p>
+            <p>$3,200</p>
         </div>
     </div>
 
@@ -184,8 +196,8 @@ header {
                 <td>amal@mail.com</td>
             </tr>
             <tr>
-                <td>admin</td>
-                <td>admin@mail.com</td>
+                <td>Ali</td>
+                <td>ali@mail.com</td>
             </tr>
         </table>
     </div>
