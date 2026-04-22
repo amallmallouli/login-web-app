@@ -11,10 +11,17 @@ users = {
     'user': generate_password_hash('user123')
 }
 
+# ------------------------
+# INDEX
+# ------------------------
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
+# ------------------------
+# LOGIN
+# ------------------------
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -31,17 +38,32 @@ def login():
     else:
         return jsonify({'message': 'Identifiants incorrects'}), 401
 
+
+# ------------------------
+# DASHBOARD
+# ------------------------
 @app.route('/dashboard')
 def dashboard():
     if 'username' not in session:
         return redirect(url_for('index'))
 
-    return render_template('dashboard.html', username=session['username'])
+    return render_template(
+        'dashboard.html',
+        username=session['username']   # 🔥 important pour affichage
+    )
 
+
+# ------------------------
+# LOGOUT
+# ------------------------
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('index'))
 
+
+# ------------------------
+# RUN
+# ------------------------
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
